@@ -10,7 +10,7 @@ if (isset($_POST['send_review'])) {
     $rating = $_POST['rating'];
     $comment = $_POST['comment'];
 
-    // защита от повторов (опционально позже)
+    
     $check = $conn->query("
         SELECT id FROM reviews 
         WHERE user_id=$to_user AND from_user_id=$from_user
