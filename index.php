@@ -7,7 +7,6 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
-// ЛЕНТА ОБЪЯВЛЕНИЙ
 $sql = "SELECT a.id, a.title, a.description, a.created_at, u.username, u.skill_category
         FROM announcements a
         JOIN users u ON a.user_id = u.id
@@ -32,7 +31,6 @@ if (!$result) {
 
 <div class="page">
 
-    <!-- NAVBAR -->
     <nav class="navbar">
     <form class="global-search" method="GET" action="search_users.php">
 
@@ -75,14 +73,12 @@ if (!$result) {
                 <small>📅 <?= $row['created_at'] ?></small>
             </div>
 
-            <!-- ОТКЛИК -->
             <form method="POST" action="respond.php">
                 <input type="hidden" name="announcement_id" value="<?= $row['id'] ?>">
                 <input type="text" name="message" placeholder="Написать отклик...">
                 <button type="submit">Отправить</button>
             </form>
 
-            <!-- ОТВЕТЫ -->
             <?php
             $responses = $conn->query("
                 SELECT ar.*, u.username
