@@ -2,7 +2,6 @@
 <form class="global-search" method="GET" action="search_users.php">
 
     <input type="text" name="q" placeholder="🔍 Найти пользователя...">
-
 </form>
 
 <div class="logo">📚 OquSpace</div>
