@@ -45,21 +45,18 @@ $user = $result->fetch_assoc();
 $announcements = $conn->query("SELECT * FROM announcements WHERE user_id = $user_id ORDER BY created_at DESC");
 $user_id = $user['id'];
 
-// ОБЪЯВЛЕНИЯ
 $announcements = $conn->query("
     SELECT * FROM announcements 
     WHERE user_id = $user_id
     ORDER BY id DESC
 ");
 
-// МАТЕРИАЛЫ
 $materials = $conn->query("
     SELECT * FROM materials 
     WHERE user_id = $user_id
     ORDER BY id DESC
 ");
 
-// ВИДЕО
 $videos = $conn->query("
     SELECT * FROM video_lessons 
     WHERE user_id = $user_id
@@ -82,7 +79,7 @@ $videos = $conn->query("
 
         <div class="profile-page">
 
-    <!-- АВАТАР + ИНФО -->
+    
     <div class="profile-top">
 
         <div class="profile-avatar">
@@ -97,14 +94,12 @@ $videos = $conn->query("
 
     </div>
 
-    <!-- 👇 ПОДПИСКА (САМАЯ ВАЖНАЯ, ВЫШЕ ВСЕХ) -->
     <div class="follow-box">
         <a href="follow.php?id=<?= $user['id'] ?>" class="btn-primary">
             ➕ Подписаться
         </a>
     </div>
 
-    <!-- 📢 ОБЪЯВЛЕНИЯ -->
     <div class="accordion">
 
         <button class="accordion-btn">📢 Мои объявления</button>
@@ -120,7 +115,6 @@ $videos = $conn->query("
 
     </div>
 
-    <!-- 📚 ПУБЛИКАЦИИ -->
     <div class="section">
 
         <?php
@@ -153,7 +147,6 @@ ORDER BY created_at DESC
 <?php endif; ?>
     </div>
 
-    <!-- 🎥 ВИДЕО -->
     <div class="section">
         
 
